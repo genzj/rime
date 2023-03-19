@@ -10,14 +10,23 @@ patch:
   zrm2000/enable_sentence: true
 
   # 笔画反查
-  recognizer/patterns/reverse_lookup: "`b[a-z]*'?$"
-  reverse_lookup:
-    dictionary: stroke
-    enable_completion: true
-    prefix: "`b"
-    suffix: "'"
-    tips: 〔笔划反查〕
-    preedit_format:
-      - xlit/hspnz/一丨丿丶乙/
-    comment_format:
-      - xform/([nl])v/$1ü/
+  # recognizer/patterns/reverse_lookup: "`b[a-z]*'?$"
+  # reverse_lookup:
+  #   dictionary: stroke
+  #   enable_completion: true
+  #   prefix: "`b"
+  #   suffix: "'"
+  #   tips: 〔笔划反查〕
+  #   preedit_format:
+  #     - xlit/hspnz/一丨丿丶乙/
+  #   comment_format:
+  #     - xform/([nl])v/$1ü/
+
+  # 使用_和+替代辅码和字形反查的逗号和句号，方便逗号句号直接上屏
+  # zrm2000码表中使用的是"ls..ls"或"ls,,"编码，由zrm2000的speller/algebra转换为++和__
+  # 具体定义在zrm2000.custom.yaml文件中
+  speller/alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA+_
+  # 使用emoji显示上述两个反查
+  zrm2000/preedit_format:
+    - xform/(\w)\+\+/$1🧵/
+    - xform/(\w)__/$1👁‍🗨/

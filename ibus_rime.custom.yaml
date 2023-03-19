@@ -1,0 +1,4 @@
+patch:
+  style:
+    horizontal: true                          # 水平排列
+    inline_preedit: false                     # 单行显示，false双行显示

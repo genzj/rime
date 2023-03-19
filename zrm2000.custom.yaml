@@ -1,0 +1,10 @@
+patch:
+  # 使用_和+替代辅码和字形反查的逗号和句号，方便逗号句号直接上屏
+  speller/alphabet: zyxwvutsrqponmlkjihgfedcba+_
+  speller/algebra/+:
+    - xform/\.\./++/
+    - xform/,,/__/
+  # 使用emoji显示上述两个反查
+  translator/preedit_format:
+    - xform/(\w)\+\+/$1🧵/
+    - xform/(\w)__/$1👁‍🗨/
